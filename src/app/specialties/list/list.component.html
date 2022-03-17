@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Liste of Specialties avaible</h5>
+            </div>
+            <table class="table table-hover my-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="d-none d-xl-table-cell">Speciality</th>
+                        <th class="d-none d-xl-table-cell">Team Number</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of data">
+                        <td class="d-none d-xl-table-cell">#</td>
+                        <td class="d-none d-xl-table-cell">{{d.specialite}}</td>
+                        <td>
+                            <span  class="badge bg-danger" *ngIf="d.nbEmpl == 0 " > {{d.nbEmpl | number}} </span>
+                            <span  class="badge bg-success" *ngIf="d.nbEmpl != 0 " > {{d.nbEmpl | number}} </span>
+                        </td>
+                        <td> <button class="btn btn-danger" (click)= "delete(d.id)">Delete</button></td>
+                        <td> <button class="btn btn-info" [routerLink]="'edit/'+d.id">Modifier</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+        <div class="card flex-fill w-100">
+            <div class="card-header">
+                <button class="btn btn-secondary" routerLink="add">Add new Speciality</button>
+            </div>
+            <div class="card-body d-flex w-100">
+                <div class="align-self-center chart chart-lg">
+                    <canvas id="chartjs-dashboard-bar"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

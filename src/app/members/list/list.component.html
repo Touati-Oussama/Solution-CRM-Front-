@@ -1,0 +1,39 @@
+<div class="row" style="margin-left: 70px;">
+    <div class="col-12 col-lg-8 col-xxl-11 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Liste of Customers avaible</h5>
+            </div>
+            <table class="table table-hover my-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="d-none d-xl-table-cell">First Name</th>
+                        <th class="d-none d-xl-table-cell">Last Name</th>
+                        <th class="d-none d-xl-table-cell">Phone Number</th>
+                        <th class="d-none d-xl-table-cell">Email</th>
+                        <th class="d-none d-xl-table-cell">Specialities</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of data">
+                        <td class="d-none d-xl-table-cell">#</td>
+                        <td class="d-none d-xl-table-cell">{{d.nom}}</td>  
+                        <td class="d-none d-xl-table-cell">{{d.prenom}}</td>  
+                        <td class="d-none d-xl-table-cell">{{d.telephone}}</td>  
+                        <td class="d-none d-xl-table-cell">{{d.email}}</td>
+                        <td class="d-none d-xl-table-cell">
+                            <ul>
+                                <li *ngFor="let s of d.specialites"> {{s}}</li>
+                            </ul>     
+                        </td>  
+                        <td> <button class="btn btn-danger" (click)= "delete(d.id)">Delete</button></td>
+                            <td> <button class="btn btn-info">Modifier</button></td>      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

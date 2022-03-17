@@ -1,0 +1,39 @@
+
+    <div class="card">
+        <a routerLink="/projects">Retour</a>
+        <div class="card-header">
+            <h5 class="card-title mb-0">Add a project</h5>
+        </div>
+        <div class="card-body">
+            <div class="m-sm-4">
+                <form [formGroup]="data" (ngSubmit)="add()">
+                    <div class="mb-3">
+                        <label class="form-label">Designation</label>
+                        <input class="form-control form-control-lg" type="text" formControlName="designation"  name="name" placeholder="Enter the status" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Client</label>
+                        <select class="form-select mb-3" formControlName="client">
+                            <option value="">Select One</option>
+                            <option [value]="c.user_id" *ngFor="let c of customers">{{c.nom}} {{c.prenom}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Speciality</label>
+                        <select class="form-select mb-3" formControlName="specialite">
+                            <option value="">Select One</option>
+                            <option [value]="c.id" *ngFor="let c of specialities">{{c.specialite}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="form6Example7" formControlName="description" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <button  class="btn btn-primary" [disabled]="! data.valid" style="margin-right:5px;">Add</button>
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,20 @@
+    <div class="card">
+        <a routerLink="/status">Retour</a>
+        <div class="card-header">
+            <h5 class="card-title mb-0">Update a status</h5>
+        </div>
+        <div class="card-body">
+            <div class="m-sm-4">
+                <form [formGroup]="data" (ngSubmit)="update()">
+                    <div class="mb-3">
+                        <label class="form-label">Status Name</label>
+                        <input class="form-control form-control-lg" type="text"  formControlName="status" name="name" placeholder="Enter the status" />
+                    </div>
+                    <div>
+                        <button  class="btn btn-primary" [disabled]="!data.valid" style="margin-right:5px;">Update</button>
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

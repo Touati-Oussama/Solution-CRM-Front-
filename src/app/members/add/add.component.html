@@ -1,0 +1,57 @@
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Add a Team Member</h5>
+        </div>
+        <div class="card-body">
+            <div class="m-sm-4">
+                <form [formGroup]="data" (ngSubmit)="add()">
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input class="form-control form-control-lg" type="text"  formControlName="nom" name="name" placeholder="Enter the status" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input class="form-control form-control-lg" type="text"  formControlName="prenom" name="name" placeholder="Enter the status" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input class="form-control form-control-lg" type="tel"  formControlName="telephone" name="name" placeholder="Enter the status" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input class="form-control form-control-lg" type="email"  formControlName="email" name="name" placeholder="Enter the status" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input class="form-control form-control-lg" type="password"  formControlName="password" name="name" placeholder="Enter the status" />
+                    </div>
+                    <!--<div class="mb-3">
+                        <label class="form-label">Specialities</label>
+                        <select>
+                            <option value="">Select One</option>
+                            <option *ngFor="let s of specialities">
+                                <label>
+                                    <input type="checkbox" [value]="s.id" (change)="onCheckboxChange($event)">
+                                    {{s.specialite}}
+                                </label>
+                            </option>
+                        </select>
+                    </div>-->
+                    <div class="mb-3">
+                      <label class="form-label">Specialities</label> 
+                      <div *ngFor="let s of specialitiess">
+                          <label>
+                              <input type="checkbox" [value]="s.specialite" (change)="onCheckboxChange($event)">
+                              {{s.specialite}}
+                          </label>
+                      </div>
+                    </div>
+                    <div>
+                        <button  class="btn btn-primary" [disabled]="! data.valid" style="margin-right:5px;">Add</button>
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
